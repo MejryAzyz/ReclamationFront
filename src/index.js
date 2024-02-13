@@ -4,9 +4,15 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Router, Routes } from 'react-router-dom';
+import FacturesContent from './components/Factures';
+import AddReclamation from './components/AddReclamation';
+import ReclamationContent from './components/Reclamation';
+import WelcomeContent from './components/WelcomeContent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App/>);
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

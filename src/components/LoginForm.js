@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 export default class LoginForm extends React.Component {
 
@@ -16,6 +17,7 @@ export default class LoginForm extends React.Component {
             adresse: "",
             onLogin: props.onLogin,
             onRegister: props.onRegister
+            
         };
     };
 
@@ -26,8 +28,14 @@ export default class LoginForm extends React.Component {
     };
 
     onSubmitLogin = (e) => {
-        this.state.onLogin(e, this.state.login, this.state.password);
-    };
+      e.preventDefault();
+
+        this.state.onLogin(e, this.state.login, this.state.password)
+
+    
+};
+
+
 
     onSubmitRegister = (e) => {
         this.state.onRegister(e, this.state.firstName, this.state.lastName, this.state.login, this.state.password, this.state.cin, this.state.tel, this.state.adresse);
@@ -65,6 +73,7 @@ export default class LoginForm extends React.Component {
                   <button type="submit" className="btn btn-primary btn-block mb-4">Sign in</button>
 
                 </form>
+
               </div>
               <div className={classNames("tab-pane", "fade", this.state.active === "register" ? "show active" : "")} id="pills-register" >
                 <form onSubmit={this.onSubmitRegister}>
@@ -109,6 +118,7 @@ export default class LoginForm extends React.Component {
 
                   <button type="submit" className="btn btn-primary btn-block mb-3">Sign in</button>
                 </form>
+
               </div>
             </div>
             </div>

@@ -1,46 +1,33 @@
-// Layout/NavBar.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Buttons from '../components/Buttons';
+import Buttono from '../components/buttono';
 
-const NavBar = ({ onLogout }) => {
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import { Link } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
+
+const NavBar = ({ login, logout, isAuthenticated }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/factures">
-          Your App Name
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/factures">
-                Factures
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/reclamations">
-                Réclamations
-              </Link>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-link nav-link" onClick={onLogout}>
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand as={Link} to="/Welcome">Your Brand Name</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          {isAuthenticated && (
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/Facture">Home</Nav.Link>
+              <Nav.Link as={Link} to="/Reclamation">Link</Nav.Link>
+              <Nav.Link as={Link} to="/addReclamation">Link</Nav.Link>
+              {/* Add your additional navigation items here */}
+            </Nav>
+          )}
+        </Navbar.Collapse>
+        {!isAuthenticated && ( <Buttons login={login} logout={logout} />)}
+        {isAuthenticated && (<Buttono logout={logout} />)}
+        
+      </Container>
+    </Navbar>
   );
 };
 
