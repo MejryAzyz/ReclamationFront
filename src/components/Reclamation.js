@@ -40,7 +40,7 @@ export default class ReclamationContent extends Component {
 
   render() {
     return (
-      <div className="row justify-content-md-center">
+      <div className="row justify-content-md-center pt-5">
         <div className="col-12">
           <div className="card">
             <div className="card-body">
@@ -63,7 +63,12 @@ export default class ReclamationContent extends Component {
                 <tbody>
                   {this.state.data &&
                     this.state.data.map((reclamation) => (
-                      <tr key={reclamation.numReclamation}>
+                      <tr key={reclamation.numReclamation}  className={
+                        reclamation.etat === 'nonTraité' ? 'table-danger'
+                          : reclamation.etat === 'enCours' ? 'table-warning'
+                          : reclamation.etat === 'Traité'? 'table-success'
+                          : ''
+                      }>
                         <td>{reclamation.numReclamation}</td>
                         <td>{reclamation.cin}</td>
                         <td>{reclamation.numFacture}</td>

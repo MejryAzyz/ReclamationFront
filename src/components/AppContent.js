@@ -52,8 +52,10 @@ export default class AppContent extends React.Component {
                 (response) => {
                     setAuthHeader(response.data.token);
                     window.localStorage.setItem('cin', response.data.cin);
+                    window.localStorage.setItem('role', response.data.role);
+
                     this.setState({isAuthenticated: true });
-                    const redirectUrl = "/Facture"; // Example
+                   const redirectUrl = "/Facture"; 
                     window.location.replace(redirectUrl);
 
                 }).catch(
@@ -82,14 +84,14 @@ export default class AppContent extends React.Component {
                 (response) => {
                     setAuthHeader(response.data.token);
                     this.setState({ isAuthenticated: true });
-                    const redirectUrl = "/Welcome"; 
-                    window.location.replace(redirectUrl);
+                    //const redirectUrl = "/Welcome"; 
+                    //window.location.replace(redirectUrl);
                 }).catch(
                     (error) => {
                         setAuthHeader(null);
                         this.setState({  isAuthenticated: false });
-                        const redirectUrl = "/Welcome"; // Example
-                    window.location.replace(redirectUrl);
+                       // const redirectUrl = "/Welcome"; // Example
+                    //window.location.replace(redirectUrl);
                     }
                 );
     };

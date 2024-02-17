@@ -18,6 +18,19 @@
 .App-intro {
   font-size: large;
 }
+.green-row {
+  background-color: #c8e6c9; /* Use your desired shade of green */
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: ">";
+  color: #00d9ff; /* You can adjust the color if needed */
+  margin-right: 8px; /* Adjust the spacing between the greater-than sign and the text */
+}
 
 @keyframes App-logo-spin {
   from {

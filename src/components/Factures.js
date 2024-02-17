@@ -14,6 +14,9 @@ export default class FacturesContent extends Component {
   componentDidMount() {
     // Retrieve 'cin' from local storage
     const cinFromLocalStorage = localStorage.getItem('cin');
+    const role =localStorage.getItem('role');
+
+    console.log("this is the role",role);
 
     if (!cinFromLocalStorage) {
       // Handle the case when 'cin' is not available in local storage
@@ -41,7 +44,7 @@ export default class FacturesContent extends Component {
   render() {
     return (
       
-      <div className="row justify-content-md-center">
+      <div className="row justify-content-md-center pt-5">
         <div className="col-12">
           <div className="card">
             <div className="card-body">

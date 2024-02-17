@@ -41,7 +41,7 @@ export default class AddReclamation extends Component {
 
   render() {
     return (
-      <div className="row justify-content-md-center">
+      <div className="row justify-content-md-center pt-5">
         <div className="col-6">
           <div className="card">
             <div className="card-body">
